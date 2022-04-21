@@ -16,7 +16,7 @@ vue-tmap, a high-performance map component library for Vue3 based on Tencent Map
 
 ### Documentation and Examples
 
-Welcome to [文档地址]() to view more map components.
+Welcome to [Official document address]() to view more map components.
 
 - [Tencent Maps Official Documentation](https://lbs.qq.com/webApi/javascriptGL/glDoc/glDocIndex)
 
