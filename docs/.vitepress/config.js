@@ -2,6 +2,7 @@ module.exports = {
   lang: 'zh-CN',
   title: '腾讯地图 vue 组件',
   description: '腾讯地图 vue 组件 tmap',
+  base: '/vue-tmap/',
   themeConfig: {
     lastUpdated: 'Last Updated',
     nav: [
