@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多边形编辑 | 腾讯地图 vue 组件</title>
+    <meta name="description" content="腾讯地图 vue 组件 tmap">
+    <link rel="stylesheet" href="/assets/style.2a1ba5e7.css">
+    <link rel="modulepreload" href="/assets/Home.6a7a6a1a.js">
+    <link rel="modulepreload" href="/assets/app.3f175021.js">
+    <link rel="modulepreload" href="/assets/api_polygon-editor.md.a9ac92c4.lean.js">
+    <link rel="modulepreload" href="/assets/app.3f175021.js">
+    <meta name="twitter:title" content="多边形编辑 | 腾讯地图 vue 组件">
+    <meta property="og:title" content="多边形编辑 | 腾讯地图 vue 组件">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme"><header class="nav-bar" data-v-7161a24b><div class="sidebar-button" data-v-7161a24b><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class></path></svg></div><a class="nav-bar-title" href="/" aria-label="腾讯地图 vue 组件, back to home" data-v-7161a24b data-v-4a583abe><!----> 腾讯地图 vue 组件</a><div class="flex-grow" data-v-7161a24b></div><div class="nav" data-v-7161a24b><!----></div><!--[--><!--]--></header><aside class="sidebar" data-v-6b49cdcd><!----><!--[--><!--]--><ul class="sidebar-links" data-v-6b49cdcd><!--[--><li class="sidebar-link"><p class="sidebar-link-item">基础</p><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="/guide/">demo</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/guide/install">安装</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/guide/getting-started">快速上手</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/guide/qa">常见问题</a><!----></li></ul></li><li class="sidebar-link"><p class="sidebar-link-item">组件</p><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="/api/map">地图</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/api/vector-events">矢量图形事件</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/api/multi-polyline">折线</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/api/multi-polygon">多边形</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item active" href="/api/polygon-editor">多边形编辑</a><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="#基础示例">基础示例</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#props">props</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#ref-可用方法">ref 可用方法</a><!----></li></ul></li><li class="sidebar-link"><a class="sidebar-link-item" href="/api/multi-circle">圆形标记</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/api/multi-marker">点标记</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/api/marker-cluster">点聚合</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/api/multi-label">文本标注</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/api/dom-overlay">DOM覆盖物</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/api/info-window">信息提示窗</a><!----></li></ul></li><!--]--></ul><!--[--><!--]--></aside><!-- TODO: make this button accessible --><div class="sidebar-mask"></div><main class="page" data-v-888f646a><div class="container" data-v-888f646a><!--[--><!--]--><div class="content" data-v-888f646a><div data-v-888f646a><h1 id="多边形编辑"><a class="header-anchor" href="#多边形编辑" aria-hidden="true">#</a> 多边形编辑</h1><p>基于腾讯地图几何图形编辑器封装，开发者不需要关心用户的操作行为，多边形数据会响应式的更新</p><h2 id="基础示例"><a class="header-anchor" href="#基础示例" aria-hidden="true">#</a> 基础示例</h2><!--[--><div style="" data-v-40722b32><div class="" style="height:100%;width:100%;" data-v-40722b32></div></div><div data-v-40722b32><div data-v-40722b32>geometries:</div><pre data-v-40722b32><code data-v-40722b32>[
+    {
+        &quot;id&quot;: &quot;polygonTen&quot;,
+        &quot;styleId&quot;: &quot;polygon&quot;,
+        &quot;paths&quot;: [
+            {
+                &quot;lat&quot;: 40.041054,
+                &quot;lng&quot;: 116.272303
+            },
+            {
+                &quot;lat&quot;: 40.039419,
+                &quot;lng&quot;: 116.272721
+            },
+            {
+                &quot;lat&quot;: 40.039764,
+                &quot;lng&quot;: 116.274824
+            },
+            {
+                &quot;lat&quot;: 40.041374,
+                &quot;lng&quot;: 116.274491
+            }
+        ],
+        &quot;properties&quot;: {
+            &quot;title&quot;: &quot;腾讯北京总部&quot;
+        }
+    },
+    {
+        &quot;id&quot;: &quot;polygonSina&quot;,
+        &quot;styleId&quot;: &quot;polygon&quot;,
+        &quot;paths&quot;: [
+            {
+                &quot;lat&quot;: 40.041649,
+                &quot;lng&quot;: 116.275059
+            },
+            {
+                &quot;lat&quot;: 40.040828,
+                &quot;lng&quot;: 116.275237
+            },
+            {
+                &quot;lat&quot;: 40.040934,
+                &quot;lng&quot;: 116.276079
+            },
+            {
+                &quot;lat&quot;: 40.041041,
+                &quot;lng&quot;: 116.276229
+            },
+            {
+                &quot;lat&quot;: 40.041095,
+                &quot;lng&quot;: 116.276481
+            },
+            {
+                &quot;lat&quot;: 40.041058,
+                &quot;lng&quot;: 116.276787
+            },
+            {
+                &quot;lat&quot;: 40.041144,
+                &quot;lng&quot;: 116.277613
+            },
+            {
+                &quot;lat&quot;: 40.041965,
+                &quot;lng&quot;: 116.277404
+            },
+            {
+                &quot;lat&quot;: 40.041879,
+                &quot;lng&quot;: 116.276653
+            },
+            {
+                &quot;lat&quot;: 40.041776,
+                &quot;lng&quot;: 116.276293
+            },
+            {
+                &quot;lat&quot;: 40.041752,
+                &quot;lng&quot;: 116.276073
+            },
+            {
+                &quot;lat&quot;: 40.041768,
+                &quot;lng&quot;: 116.275864
+            }
+        ],
+        &quot;properties&quot;: {
+            &quot;title&quot;: &quot;其他建筑物&quot;
+        }
+    }
+]</code></pre></div><!--]--><div class="language-vue"><pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>{ height: 400 }<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tmap-map</span> <span class="token attr-name">mapKey</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>TOZBZ-OU2CX-JJP4Z-7FCBV-CDDJ2-AHFQZ<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tmap-multi-polygon</span>
+        <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>actionMode === 0<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>id<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:styles</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>styles<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:geometries</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>geometries<span class="token punctuation">&quot;</span></span>
+      <span class="token punctuation">/&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tmap-polygon-editor</span>
+        <span class="token attr-name">v-else</span>
+        <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>editor<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>id<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:styles</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>styles<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>geometries<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">:action-mode</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>actionMode<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">@select</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>onSelect<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">@error</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>onError<span class="token punctuation">&quot;</span></span>
+      <span class="token punctuation">/&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>ctrl<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>radio<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>0<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>actionMode<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">&gt;</span></span>预览模式<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>radio<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>1<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>actionMode<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">&gt;</span></span>编辑模式<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>radio<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>2<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>actionMode<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">&gt;</span></span>新增模式<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click.stop</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>split<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>分割<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click.stop</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>union<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>合并<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click.stop</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>del<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>删除<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click.stop</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>stop<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>结束绘制<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tmap-map</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>geometries:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pre</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>code</span><span class="token punctuation">&gt;</span></span>{{ JSON.stringify(geometries, null, &#39;    &#39;) }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>code</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pre</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>ts<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> defineComponent<span class="token punctuation">,</span> ref<span class="token punctuation">,</span> watch <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;vue&#39;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">&#39;polygon-editor&#39;</span><span class="token punctuation">,</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> editor <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> geometries <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        id<span class="token operator">:</span> <span class="token string">&#39;polygonTen&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 多边形图形数据的标志信息</span>
+        styleId<span class="token operator">:</span> <span class="token string">&#39;polygon&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 样式id</span>
+        paths<span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span> lat<span class="token operator">:</span> <span class="token number">40.041054</span><span class="token punctuation">,</span> lng<span class="token operator">:</span> <span class="token number">116.272303</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> lat<span class="token operator">:</span> <span class="token number">40.039419</span><span class="token punctuation">,</span> lng<span class="token operator">:</span> <span class="token number">116.272721</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> lat<span class="token operator">:</span> <span class="token number">40.039764</span><span class="token punctuation">,</span> lng<span class="token operator">:</span> <span class="token number">116.274824</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> lat<span class="token operator">:</span> <span class="token number">40.041374</span><span class="token punctuation">,</span> lng<span class="token operator">:</span> <span class="token number">116.274491</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 多边形的位置信息</span>
+        properties<span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token comment">// 多边形的属性数据</span>
+          title<span class="token operator">:</span> <span class="token string">&#39;腾讯北京总部&#39;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        id<span class="token operator">:</span> <span class="token string">&#39;polygonSina&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 多边形图形数据的标志信息</span>
+        styleId<span class="token operator">:</span> <span class="token string">&#39;polygon&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 样式id</span>
+        paths<span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span> lat<span class="token operator">:</span> <span class="token number">40.041649</span><span class="token punctuation">,</span> lng<span class="token operator">:</span> <span class="token number">116.275059</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> lat<span class="token operator">:</span> <span class="token number">40.040828</span><span class="token punctuation">,</span> lng<span class="token operator">:</span> <span class="token number">116.275237</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> lat<span class="token operator">:</span> <span class="token number">40.040934</span><span class="token punctuation">,</span> lng<span class="token operator">:</span> <span class="token number">116.276079</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> lat<span class="token operator">:</span> <span class="token number">40.041041</span><span class="token punctuation">,</span> lng<span class="token operator">:</span> <span class="token number">116.276229</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> lat<span class="token operator">:</span> <span class="token number">40.041095</span><span class="token punctuation">,</span> lng<span class="token operator">:</span> <span class="token number">116.276481</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> lat<span class="token operator">:</span> <span class="token number">40.041058</span><span class="token punctuation">,</span> lng<span class="token operator">:</span> <span class="token number">116.276787</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> lat<span class="token operator">:</span> <span class="token number">40.041144</span><span class="token punctuation">,</span> lng<span class="token operator">:</span> <span class="token number">116.277613</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> lat<span class="token operator">:</span> <span class="token number">40.041965</span><span class="token punctuation">,</span> lng<span class="token operator">:</span> <span class="token number">116.277404</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> lat<span class="token operator">:</span> <span class="token number">40.041879</span><span class="token punctuation">,</span> lng<span class="token operator">:</span> <span class="token number">116.276653</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> lat<span class="token operator">:</span> <span class="token number">40.041776</span><span class="token punctuation">,</span> lng<span class="token operator">:</span> <span class="token number">116.276293</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> lat<span class="token operator">:</span> <span class="token number">40.041752</span><span class="token punctuation">,</span> lng<span class="token operator">:</span> <span class="token number">116.276073</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> lat<span class="token operator">:</span> <span class="token number">40.041768</span><span class="token punctuation">,</span> lng<span class="token operator">:</span> <span class="token number">116.275864</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        properties<span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token comment">// 多边形的属性数据</span>
+          title<span class="token operator">:</span> <span class="token string">&#39;其他建筑物&#39;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">watch</span><span class="token punctuation">(</span>
+      <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> geometries<span class="token punctuation">.</span>value<span class="token punctuation">,</span>
+      <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#39;watch&#39;</span><span class="token punctuation">,</span> geometries<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> actionMode <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      editor<span class="token punctuation">,</span>
+      id<span class="token operator">:</span> <span class="token string">&#39;polygon-layer&#39;</span><span class="token punctuation">,</span>
+      styles<span class="token operator">:</span> <span class="token punctuation">{</span>
+        drawing<span class="token operator">:</span> <span class="token punctuation">{</span>
+          color<span class="token operator">:</span> <span class="token string">&#39;#3777FF&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 面填充色</span>
+          showBorder<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 是否显示拔起面的边线</span>
+          borderColor<span class="token operator">:</span> <span class="token string">&#39;#00FFFF&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 边线颜色</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        selected<span class="token operator">:</span> <span class="token punctuation">{</span>
+          color<span class="token operator">:</span> <span class="token string">&#39;#ff0000&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 面填充色</span>
+          showBorder<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 是否显示拔起面的边线</span>
+          borderColor<span class="token operator">:</span> <span class="token string">&#39;#00ff00&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 边线颜色</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      styles1<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token keyword">default</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          color<span class="token operator">:</span> <span class="token string">&#39;#ff0000&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 面填充色</span>
+          showBorder<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 是否显示拔起面的边线</span>
+          borderColor<span class="token operator">:</span> <span class="token string">&#39;#00FFFF&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 边线颜色</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      geometries<span class="token punctuation">,</span>
+      actionMode<span class="token punctuation">,</span>
+      <span class="token function-variable function">select</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>editor<span class="token punctuation">.</span>value<span class="token operator">?.</span>select<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          editor<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">stop</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>editor<span class="token punctuation">.</span>value<span class="token operator">?.</span>stop<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          editor<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">split</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>editor<span class="token punctuation">.</span>value<span class="token operator">?.</span>split<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          editor<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">union</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>editor<span class="token punctuation">.</span>value<span class="token operator">?.</span>union<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          editor<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">union</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">del</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>editor<span class="token punctuation">.</span>value<span class="token operator">?.</span>delete<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          editor<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">onSelect</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">e<span class="token operator">:</span> TMap<span class="token punctuation">.</span>PolygonGeometry</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#39;print&#39;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">onError</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">e<span class="token operator">:</span> Record<span class="token operator">&lt;</span>string<span class="token punctuation">,</span> string<span class="token operator">&gt;</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#39;print&#39;</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>scss<span class="token punctuation">&quot;</span></span> <span class="token attr-name">scoped</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+<span class="token selector">.ctrl</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">z-index</span><span class="token punctuation">:</span> 1001<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="props"><a class="header-anchor" href="#props" aria-hidden="true">#</a> props</h2><table><thead><tr><th>名称</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td>id</td><td>String</td><td>图层id</td></tr><tr><td>zIndex</td><td>Number</td><td>图层绘制顺序</td></tr><tr><td>snappable</td><td>Boolean</td><td>是否开启吸附功能，默认为false</td></tr><tr><td>drawingStyleId</td><td>String</td><td>编辑态的样式id</td></tr><tr><td>selectedStyleId</td><td>String</td><td>选中态态的样式id</td></tr><tr><td>styles</td><td>{ [key: string]: TMap.PolygonStyleOptions }</td><td>样式</td></tr><tr><td>modelValue</td><td>TMap.PolygonGeometry[]</td><td>多边形数据</td></tr><tr><td>actionMode</td><td>Number</td><td>编辑器的操作状态</td></tr></tbody></table><h2 id="ref-可用方法"><a class="header-anchor" href="#ref-可用方法" aria-hidden="true">#</a> ref 可用方法</h2><ul><li>select: 选中属于激活状态的图层内的几何图形，若传入空数组则清空;</li><li>stop: 停止绘制或编辑过程</li><li>split: 拆分已选中多边形，</li><li>union: 合并已选中多边形</li><li>delete: 删除已选中图形</li></ul><p>详细文档见官网 <a href="https://lbs.qq.com/webApi/javascriptGL/glDoc/glDocEditor" target="_blank" rel="noopener noreferrer">https://lbs.qq.com/webApi/javascriptGL/glDoc/glDocEditor</a></p></div></div><footer class="page-footer" data-v-888f646a data-v-fb8d84c6><div class="edit" data-v-fb8d84c6><div class="edit-link" data-v-fb8d84c6 data-v-1ed99556><!----></div></div><div class="updated" data-v-fb8d84c6><p class="last-updated" data-v-fb8d84c6 data-v-5797b537><span class="prefix" data-v-5797b537>Last Updated:</span><span class="datetime" data-v-5797b537></span></p></div></footer><div class="next-and-prev-link" data-v-888f646a data-v-38ede35f><div class="container" data-v-38ede35f><div class="prev" data-v-38ede35f><a class="link" href="/api/multi-polygon" data-v-38ede35f><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="icon icon-prev" data-v-38ede35f><path d="M19,11H7.4l5.3-5.3c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-7,7c-0.1,0.1-0.2,0.2-0.2,0.3c-0.1,0.2-0.1,0.5,0,0.8c0.1,0.1,0.1,0.2,0.2,0.3l7,7c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4L7.4,13H19c0.6,0,1-0.4,1-1S19.6,11,19,11z"></path></svg><span class="text" data-v-38ede35f>多边形</span></a></div><div class="next" data-v-38ede35f><a class="link" href="/api/multi-circle" data-v-38ede35f><span class="text" data-v-38ede35f>圆形标记</span><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="icon icon-next" data-v-38ede35f><path d="M19.9,12.4c0.1-0.2,0.1-0.5,0-0.8c-0.1-0.1-0.1-0.2-0.2-0.3l-7-7c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l5.3,5.3H5c-0.6,0-1,0.4-1,1s0.4,1,1,1h11.6l-5.3,5.3c-0.4,0.4-0.4,1,0,1.4c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3l7-7C19.8,12.6,19.9,12.5,19.9,12.4z"></path></svg></a></div></div></div><!--[--><!--]--></div></main></div><!----><!--]--></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"2c48bbc0\",\"api_dom-overlay.md\":\"07a96bb0\",\"api_info-window.md\":\"71cdec9e\",\"api_map.md\":\"cbe3fb44\",\"api_marker-cluster.md\":\"53a3ce2f\",\"api_multi-circle.md\":\"75909bb1\",\"api_multi-label.md\":\"69d359c2\",\"api_multi-marker.md\":\"ec7c6cd2\",\"api_multi-polygon.md\":\"d4562726\",\"api_multi-polyline.md\":\"6b16a62a\",\"api_polygon-editor.md\":\"a9ac92c4\",\"api_vector-events.md\":\"ddb02857\",\"guide_getting-started.md\":\"1744ed7e\",\"guide_index.md\":\"a38f5e6e\",\"guide_install.md\":\"427dceca\",\"guide_qa.md\":\"f625aac2\"}")</script>
+    <script type="module" async src="/assets/app.3f175021.js"></script>
+  </body>
+</html>
