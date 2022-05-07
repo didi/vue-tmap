@@ -6,6 +6,7 @@
     "outDir": "es",
     "strict": true,
     "jsx": "preserve",
+    "isolatedModules": false,
     "importHelpers": true,
     "moduleResolution": "node",
     "skipLibCheck": true,
@@ -14,7 +15,7 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["@didi/tmap-types", "webpack-env", "mocha", "chai"],
+    "types": ["@map-component/tmap-types", "webpack-env", "mocha", "chai"],
     "paths": {
       "@/*": ["src/*"]
     },

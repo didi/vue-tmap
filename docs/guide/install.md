@@ -5,11 +5,11 @@
 ## npm 安装
 
 ```bash
-npm install @didi/vue-tmap --save
+npm install @map-component/vue-tmap --save
 ```
 
 ## yarn 安装
 
 ```bash
-yarn add @didi/vue-tmap
+yarn add @map-component/vue-tmap
 ```

@@ -8,11 +8,11 @@
 
 ## props
 
-| 名称       | 类型                                       | 说明             |
-| ---------- | ------------------------------------------ | ---------------- |
-| id         | String                                     | 图层 id          |
-| styles     | { [key: string]: TMap.MarkerStyleOptions } | 标注点的相关样式 |
-| geometries | TMap.PointGeometry[]                       | 标注点数据数组   |
+| 名称       | 类型                                         | 说明             |
+| ---------- | -------------------------------------------- | ---------------- |
+| id         | String                                       | 图层 id          |
+| styles     | `{ [key: string]: TMap.MarkerStyleOptions }` | 标注点的相关样式 |
+| geometries | TMap.PointGeometry[]                         | 标注点数据数组   |
 
 ## ref 可用方法
 

@@ -31,8 +31,7 @@ export default defineComponent({
           width: 25,
           height: 35,
           anchor: { x: 16, y: 32 },
-          src:
-            'https://mapapi.qq.com/web/lbs/javascriptGL/demo/img/markerDefault.png',
+          src: 'https://mapapi.qq.com/web/lbs/javascriptGL/demo/img/markerDefault.png',
         },
       },
       geometries,

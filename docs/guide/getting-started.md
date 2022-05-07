@@ -11,23 +11,24 @@ https://lbs.qq.com/dev/console/key/manage
 ## 项目结构
 
 使用`Vue CLI`新建项目
-`vue create hello-tmap` 
+`vue create hello-tmap`
 
 项目结构为：
+
 ```html
-|- src/  --------------------- 项目源代码
-    |- App.vue
-    |- main.js  -------------- 入口文件
+|- src/ --------------------- 项目源代码 |- App.vue |- main.js --------------
+入口文件
 ```
 
-## 引入vue-tmap
+## 引入 vue-tmap
 
 main.js
+
 ```javascript
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
-import Tmap from '@didi/vue-tmap';
+import Tmap from '@map-component/vue-tmap';
 
 createApp(App)
   .use(router)
@@ -38,6 +39,7 @@ createApp(App)
 App.vue
 
 > mapKey 为新申请的密钥
+
 ```html
 <template>
   <tmap-map
@@ -52,36 +54,35 @@ App.vue
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+  import { defineComponent, ref } from 'vue';
 
-export default defineComponent({
-  name: 'Home',
-  setup() {
-    const center = ref({ lat: 30.290756, lng: 120.074387 });
-    const zoom = ref(10);
-    const doubleClickZoom = ref(true);
-    const print = (e: unknown) => {
-      console.log(e);
-    };
-    return {
-      events: {
-        dblclick: print,
-      },
-      center,
-      zoom,
-      doubleClickZoom,
-      control: {
-        scale: {},
-        zoom: {
-          position: 'bottomRight',
+  export default defineComponent({
+    name: 'Home',
+    setup() {
+      const center = ref({ lat: 30.290756, lng: 120.074387 });
+      const zoom = ref(10);
+      const doubleClickZoom = ref(true);
+      const print = (e: unknown) => {
+        console.log(e);
+      };
+      return {
+        events: {
+          dblclick: print,
         },
-      },
-    };
-  },
-});
+        center,
+        zoom,
+        doubleClickZoom,
+        control: {
+          scale: {},
+          zoom: {
+            position: 'bottomRight',
+          },
+        },
+      };
+    },
+  });
 </script>
 ```
-
 
 ## 安装依赖
 

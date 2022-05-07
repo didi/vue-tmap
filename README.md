@@ -9,7 +9,7 @@ vue-tmap, a high-performance map component library for Vue3 based on Tencent Map
 
 - Improve documentation: improve the readability of documentation based on official documentation and framework usage, and improve component examples
 - Componentization: Encapsulate the Tencent Maps imperative api as a responsive component, no need to care about the complex map api, only need to operate the data
-- Multi-framework: including [react-tmap]() and [vue-tmap](), and share the same set of type definitions
+- Multi-framework: including [react-tmap](https://github.com/didi/react-tmap) and [vue-tmap](https://github.com/didi/vue-tmap), and share the same set of type definitions
 - Type-safe: supplemented the type declaration of Tencent Maps sdk, components are also developed using TypeScript, a better development experience
 - Custom components: provide an open map instance, you can write custom components or directly call the map's native api
 - Performance optimization: unify the map api calling method and data monitoring to prevent performance problems caused by misuse of the map api
@@ -39,7 +39,7 @@ Welcome to [Official document address](https://didi.github.io/vue-tmap/) to view
 #### Install
 
 ```shell
-npm install @didi/vue-tmap
+npm install @map-component/vue-tmap
 ```
 
 #### Apply for Tencent map key

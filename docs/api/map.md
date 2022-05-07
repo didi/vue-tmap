@@ -22,7 +22,7 @@
 | class     | String                          | 地图容器 classname                                                        |
 | style     | Object                          | 地图容器 style                                                            |
 | control   | ControlType(参考下面的类型定义) | 地图控件的配置                                                            |
-| events    | { [key: string]: Function }     | 地图事件                                                                  |
+| events    | `{ [key: string]: Function }`   | 地图事件                                                                  |
 
 ```ts
 interface ControlType {
@@ -36,14 +36,14 @@ interface ControlType {
 
 | 名称            | 类型                         | 说明                                                 |
 | --------------- | ---------------------------- | ---------------------------------------------------- |
-| center          | { lat: number; lng: number } | 地图中心点经纬度。                                   |
+| center          | `{ lat:number; lng:number }` | 地图中心点经纬度。                                   |
 | zoom            | Number                       | 地图缩放级别，支持 3 ～ 20。                         |
 | minZoom         | Number                       | 地图最小缩放级别，默认为 3。                         |
 | maxZoom         | Number                       | 地图最大缩放级别，默认为 20。                        |
 | rotation        | Number                       | 地图在水平面上的旋转角度，顺时针方向为正，默认为 0。 |
 | pitch           | Number                       | 地图俯仰角度，取值范围为 0~80，默认为 0。            |
 | scale           | Number                       | 地图显示比例，默认为 1。                             |
-| offset          | { x: number; y: number }     | 地图中心与容器的偏移量                               |
+| offset          | `{ x:number; y:number }`     | 地图中心与容器的偏移量                               |
 | draggable       | Boolean                      | 是否支持拖拽移动地图，默认为 true。                  |
 | scrollable      | Boolean                      | 是否支持鼠标滚轮缩放地图，默认为 true。              |
 | doubleClickZoom | Boolean                      | 是否支持双击缩放地图，默认为 true。                  |
