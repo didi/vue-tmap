@@ -1,6 +1,6 @@
 {
   "name": "@map-component/vue-tmap",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "main": "es/index.js",
   "module": "es/index.js",
   "files": [
@@ -9,6 +9,14 @@
     "types"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/didi/vue-tmap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/didi/vue-tmap/issues"
+  },
+  "homepage": "https://github.com/didi/vue-tmap",
   "scripts": {
     "dev": "vitepress dev docs",
     "prebuild": "tsc -b buildconfig.json",
@@ -19,7 +27,7 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs --port 8080",
-    "docs:deploy": "npm run docs:build && gh-pages -d docs/.vitepress/dist"
+    "docs:deploy": "gh-pages -d docs/.vitepress/dist"
   },
   "dependencies": {
     "core-js": "^3.22.4"
