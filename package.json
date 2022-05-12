@@ -1,13 +1,7 @@
 {
   "name": "@map-component/vue-tmap",
-  "version": "0.1.1",
-  "main": "es/index.js",
-  "module": "es/index.js",
-  "files": [
-    "dist",
-    "es",
-    "types"
-  ],
+  "version": "0.1.2",
+  "description": "基于腾讯地图 JavaScript API GL、TypeScript 封装适用于 Vue3 的高性能地图组件库",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -16,19 +10,34 @@
   "bugs": {
     "url": "https://github.com/didi/vue-tmap/issues"
   },
-  "homepage": "https://github.com/didi/vue-tmap",
+  "homepage": "https://didi.github.io/vue-tmap/",
+  "main": "es/index.js",
+  "module": "es/index.js",
+  "keywords": [
+    "map",
+    "tmap",
+    "qqmap",
+    "vue map",
+    "map component"
+  ],
   "scripts": {
     "dev": "vitepress dev docs",
     "prebuild": "tsc -b buildconfig.json",
     "build": "vue-cli-service build --target lib --name vue-tmap src/index.ts",
-    "p": "npm run build && npm publish",
+    "release": "npm run build && npm publish",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs --port 8080",
-    "docs:deploy": "gh-pages -d docs/.vitepress/dist"
+    "docs:deploy": "gh-pages -d docs/.vitepress/dist",
+    "deploy": "npm run docs:build && npm run docs:deploy"
   },
+  "files": [
+    "dist",
+    "es",
+    "types"
+  ],
   "dependencies": {
     "core-js": "^3.22.4"
   },

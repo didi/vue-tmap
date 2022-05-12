@@ -1,7 +1,7 @@
 # vue-tmap
 
-- en [English](README.md)
-- zh_CN [简体中文](README.zh_CN.md)
+- en [English](https://github.com/didi/vue-tmap/blob/main/README.md)
+- zh_CN [简体中文](https://github.com/didi/react-tmap/blob/main/README.md)
 
 ### 简介
 
