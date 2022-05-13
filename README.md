@@ -4,8 +4,7 @@
 ![](https://img.shields.io/npm/dt/@map-component/vue-tmap.svg)
 ![](https://img.shields.io/npm/l/express.svg)
 
-- en [English](https://github.com/didi/vue-tmap/blob/main/README.md)
-- zh_CN [简体中文](https://github.com/didi/vue-tmap/blob/main/README.md)
+- zh_CN [简体中文](https://github.com/didi/vue-tmap/blob/main/README.zh_CN.md)
 
 ### Introduction
 
