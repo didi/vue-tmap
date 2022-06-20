@@ -9,7 +9,7 @@ module.exports = {
       { text: '文档', link: '/guide/', activeMatch: '^/$|^/guide|^/api/' },
       {
         text: '仓库地址',
-        link: '',
+        link: 'https://github.com/didi/vue-tmap',
       },
     ],
 
