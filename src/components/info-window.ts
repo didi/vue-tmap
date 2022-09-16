@@ -42,6 +42,11 @@ export default defineComponent({
       required: false,
       default: () => ({ x: 0, y: 0 }),
     },
+    enableCustom: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   emits: ['close-click'],
   setup(props, { emit }) {
@@ -61,6 +66,7 @@ export default defineComponent({
       content: props.content, // 设置信息框内容
       zIndex: props.zIndex,
       offset: props.offset,
+      enableCustom: props.enableCustom,
     });
 
     infoWindow.on('closeclick', () => {

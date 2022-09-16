@@ -20,8 +20,8 @@ function equalPolygonGeometry<T>(
   }
   if (a.properties !== undefined && b.properties !== undefined) {
     type KeysType = keyof T;
-    const aPropertyKeys = Object.keys(a.properties) as KeysType[];
-    const bPropertyKeys = Object.keys(b.properties) as KeysType[];
+    const aPropertyKeys = Object.keys(a.properties || {}) as KeysType[];
+    const bPropertyKeys = Object.keys(b.properties || {}) as KeysType[];
 
     if (aPropertyKeys.length !== bPropertyKeys.length) {
       return false;
@@ -29,7 +29,7 @@ function equalPolygonGeometry<T>(
     // properties 只做一层深度的比较
     for (let i = aPropertyKeys.length - 1; i >= 0; i -= 1) {
       const key = aPropertyKeys[i];
-      if (a.properties[key] !== b.properties[key]) {
+      if (a.properties?.[key] !== b.properties?.[key]) {
         return false;
       }
     }
