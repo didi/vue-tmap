@@ -23,7 +23,7 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "prebuild": "tsc -b buildconfig.json",
-    "build": "vue-cli-service build --target lib --name vue-tmap src/index.ts",
+    "build": "npm run prebuild && vite build --config vite.config.js",
     "release": "npm run build && npm publish",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
@@ -34,17 +34,13 @@
     "deploy": "npm run docs:build && npm run docs:deploy"
   },
   "files": [
-    "dist",
-    "es",
-    "types"
+    "dist"
   ],
   "dependencies": {
     "core-js": "^3.22.4"
   },
   "devDependencies": {
-    "vue": "^3.1.0",
-    "vite": "^2.9.8",
-    "@map-component/tmap-types": "^0.1.0",
+    "@map-component/tmap-types": "^0.1.1",
     "@types/chai": "^4.2.11",
     "@types/mocha": "^5.2.4",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
@@ -69,6 +65,9 @@
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "typescript": "^4.6.4",
-    "vitepress": "^0.22.4"
+    "vite": "^2.9.8",
+    "vite-plugin-dts": "^1.5.0",
+    "vitepress": "^0.22.4",
+    "vue": "^3.1.0"
   }
 }
