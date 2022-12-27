@@ -1,6 +1,12 @@
 <template>
   <tmap-map mapKey="TOZBZ-OU2CX-JJP4Z-7FCBV-CDDJ2-AHFQZ">
-    <tmap-multi-marker :id="id" :styles="styles" :geometries="geometries" />
+    <tmap-multi-marker
+      :id="id"
+      :styles="styles"
+      :geometries="geometries"
+      @click="print"
+      @dblclick="print"
+    />
     <div class="color">
       <div>改变位置：</div>
       <div class="green" @click="setPosition()"></div>
@@ -48,6 +54,9 @@ export default defineComponent({
     setPosition() {
       this.index = (this.index + 1) % 4;
       this.geometries[0].position = this.positions[this.index];
+    },
+    print() {
+      console.log('click');
     },
   },
 });

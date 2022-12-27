@@ -8,6 +8,7 @@ import {
   onUnmounted,
 } from 'vue';
 import useCleanUp from '../composables/use-clean-up';
+import useEvent from '../composables/use-event';
 
 function builtStyle(opt: { [key: string]: TMap.LabelStyle }) {
   const styled: TMap.MultiLabelStyleHash = {};
@@ -39,7 +40,7 @@ export default defineComponent({
       default: false,
     },
   },
-  setup(props) {
+  setup(props, { attrs, emit }) {
     const map = inject<Ref<TMap.Map>>('map');
     if (!map) {
       return {};
@@ -60,6 +61,8 @@ export default defineComponent({
       geometries: getResGeo(props.geometries),
       enableCollision: props.enableCollision,
     });
+
+    useEvent(labelInstance, attrs, emit);
 
     watch(
       () => props.styles,

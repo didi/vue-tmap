@@ -14,6 +14,7 @@ export default function useEvent(
       listeners.push(emit.bind(null, eventName));
     }
   });
+
   events.forEach((eventName, i) => {
     overlay.on(eventName, listeners[i]);
   });

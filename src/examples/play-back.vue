@@ -9,6 +9,8 @@
       :styles="markerStyles"
       :geometries="markerGeometries"
       ref="markers"
+      @click="print"
+      @dblclick="print"
     />
     <div class="ctrl">
       <button @click="moveAlong">出发</button>
@@ -119,6 +121,9 @@ export default defineComponent({
       },
       resumeMove: () => {
         markers.value.resumeMove();
+      },
+      print() {
+        console.log('click');
       },
     };
   },

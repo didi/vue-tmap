@@ -1,3 +1,4 @@
+import useEvent from '../composables/use-event';
 import {
   defineComponent,
   inject,
@@ -38,19 +39,24 @@ export default defineComponent({
       required: true,
     },
   },
-  setup(props) {
+  setup(props, { attrs, emit }) {
     const map = inject<Ref<TMap.Map>>('map');
     if (!map) {
       return {};
     }
     const originMap = toRaw(map.value);
     useCleanUp(originMap, props.id);
+
     const markers = new TMap.MultiMarker({
       id: props.id,
       map: originMap,
       styles: builtStyle(props.styles),
       geometries: buildGeometries(props.geometries),
     });
+
+    console.log(markers);
+    useEvent(markers, attrs, emit);
+
     watch(
       () => props.styles,
       (styles) => {
@@ -66,6 +72,7 @@ export default defineComponent({
     onUnmounted(() => {
       markers.setMap(null);
     });
+
     // 提供给ref实例使用
     return {
       getStyles: markers.getStyles,

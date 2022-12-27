@@ -88,6 +88,7 @@ export default defineComponent({
         const currentGeometriesMap = keyBy(currentGeometries, 'id');
         const toDelete = new Set(Object.keys(currentGeometriesMap));
         const toAddOrModify: TMap.PolygonGeometry[] = [];
+
         geometries.forEach((v) => {
           if (currentGeometriesMap[v.id]) {
             toDelete.delete(v.id);

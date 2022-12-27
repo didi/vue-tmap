@@ -1,6 +1,12 @@
 <template>
   <tmap-map ref="map" mapKey="TOZBZ-OU2CX-JJP4Z-7FCBV-CDDJ2-AHFQZ">
-    <tmap-multi-circle :id="id" :styles="styles" :geometries="geometries" />
+    <tmap-multi-circle
+      :id="id"
+      :styles="styles"
+      :geometries="geometries"
+      @click="print"
+      @dblclick="print"
+    />
     <div class="color">
       <div>改变颜色：</div>
       <div class="green" @click="setColor('#00FF00')"></div>
@@ -68,6 +74,9 @@ export default defineComponent({
       ...state,
       setColor,
       onAdd,
+      print() {
+        console.log('click');
+      },
     };
   },
 });
