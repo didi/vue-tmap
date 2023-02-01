@@ -34,6 +34,7 @@ const install: Plugin = (Vue: App) => {
 export {
   TMap,
   MultiMarker,
+  MarkerCluster,
   MultiPolygon,
   MultiPolyline,
   MultiLabel,
@@ -41,5 +42,6 @@ export {
   InfoWindow,
   PolygonEditor,
   GeometryEditor,
+  DOMOverlay,
 };
 export default install;
