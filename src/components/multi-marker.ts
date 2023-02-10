@@ -54,7 +54,6 @@ export default defineComponent({
       geometries: buildGeometries(props.geometries),
     });
 
-    console.log(markers);
     useEvent(markers, attrs, emit);
 
     watch(

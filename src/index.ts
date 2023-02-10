@@ -8,7 +8,7 @@ import MultiLabel from './components/multi-label';
 import MultiCircle from './components/multi-circle';
 import InfoWindow from './components/info-window';
 import PolygonEditor from './components/polygon-editor';
-import GeometryEditor from './components/geometry-editor';
+// import GeometryEditor from './components/geometry-editor';
 import DOMOverlay from './components/dom-overlay';
 
 const components = [
@@ -21,7 +21,7 @@ const components = [
   MultiCircle,
   InfoWindow,
   PolygonEditor,
-  GeometryEditor,
+  // GeometryEditor,
   DOMOverlay,
 ];
 
@@ -41,7 +41,7 @@ export {
   MultiCircle,
   InfoWindow,
   PolygonEditor,
-  GeometryEditor,
+  // GeometryEditor,
   DOMOverlay,
 };
 export default install;
