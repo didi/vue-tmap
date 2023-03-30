@@ -61,12 +61,14 @@ export default defineComponent({
       (styles) => {
         markers.setStyles(builtStyle(styles));
       },
+      { deep: true }
     );
     watch(
       () => props.geometries,
       (geometries) => {
         markers.setGeometries(buildGeometries(geometries));
       },
+      { deep: true }
     );
     onUnmounted(() => {
       markers.setMap(null);
