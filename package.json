@@ -11,8 +11,8 @@
     "url": "https://github.com/didi/vue-tmap/issues"
   },
   "homepage": "https://didi.github.io/vue-tmap/",
-  "main": "dist/vue-tmap.es.js",
-  "module": "dist/vue-tmap.es.js",
+  "main": "dist/index.es.js",
+  "module": "dist/index.es.js",
   "keywords": [
     "map",
     "tmap",
