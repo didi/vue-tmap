@@ -38,7 +38,7 @@ export default defineComponent({
       default: 0,
     },
     offset: {
-      type: Object,
+      type: Object as PropType<TMap.Offset>,
       required: false,
       default: () => ({ x: 0, y: 0 }),
     },
