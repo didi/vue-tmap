@@ -1,6 +1,6 @@
 {
   "name": "@map-component/vue-tmap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "基于腾讯地图 JavaScript API GL、TypeScript 封装适用于 Vue3 的高性能地图组件库",
   "license": "MIT",
   "repository": {
