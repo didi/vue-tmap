@@ -1,6 +1,6 @@
 {
   "name": "@map-component/vue-tmap",
-  "version": "0.1.8",
+  "version": "1.0.0",
   "description": "基于腾讯地图 JavaScript API GL、TypeScript 封装适用于 Vue3 的高性能地图组件库",
   "license": "MIT",
   "repository": {
@@ -11,8 +11,8 @@
     "url": "https://github.com/didi/vue-tmap/issues"
   },
   "homepage": "https://didi.github.io/vue-tmap/",
-  "main": "dist/vue-tmap.es.js",
-  "module": "dist/vue-tmap.es.js",
+  "main": "dist/index.es.js",
+  "module": "dist/index.es.js",
   "keywords": [
     "map",
     "tmap",
